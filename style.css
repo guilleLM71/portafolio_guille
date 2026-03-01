@@ -1,0 +1,92 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/*Selector de TIPO(etiqueta)*/
+body{
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    background: #f5f5f5;
+}
+/*Otro selector de TIPO aplicar estilo al encabezado*/
+header{
+    background: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+/*Seleto descendiente*/
+nav ul{
+    list-style: none;
+}
+/*Selector de tipo para los elementos li dentro del nav ul*/
+nav ul li{
+    display: inline-block;
+    margin: 0 20px;
+}
+/*Selector de los enlaces (a) dentro del nav*/
+nav ul li a{
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+/*Selector de CLASE selecciona cualquier elemento que tenga la palabra class="proyecto-card"*/
+.proyecto-card{
+    width: 300px;
+   border: 1px solid #ddd;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,1,1);
+}
+/*Selector de ID (#) seleccionar un elemento en especifico*/
+#contenedor-proyectos{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+    background: #e0f7fa;
+}
+/*MEDIA QUERYS*/
+@media screen and (max-width: 600px){
+    nav ul il{
+        display: block;
+        margin: 10px 0;
+    }
+    .proyecto-card{
+        width: 100%;
+    }
+}
+@media screen and (min-width: 601px) and (max-width: 900px){
+    #contenedor-proyectos{
+        justify-content: space-around;
+        gap: 10px;
+    }
+    .proyecto-card{
+        width: 45%;
+    }
+    h1{
+        font-size: 1.5em;
+    }
+}
+@media (prefers-color-scheme: dark){
+    body{
+        background: #121212;
+        color: #e0e0e0;
+    }
+    header{
+        background: #1f1f1f;
+    }
+    .proyecto-card{
+        background: #1e1e1e;
+        border: 1px solid #333;
+        color: #e0e0e0;
+    }
+    .proyecto-card a{
+        color: #90caf9;
+    }
+}
