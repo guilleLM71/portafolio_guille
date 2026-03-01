@@ -1,92 +1,101 @@
 *{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-/*Selector de TIPO(etiqueta)*/
-body{
-    font-family: 'Poppins', sans-serif;
-    line-height: 1.6;
-    background: #f5f5f5;
-}
-/*Otro selector de TIPO aplicar estilo al encabezado*/
-header{
-    background: #333;
-    color: #fff;
-    padding: 20px;
-    text-align: center;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-/*Seleto descendiente*/
+body{
+    font-family:'Poppins',sans-serif;
+    background:#f5f5f5;
+}
+
+
+header{
+    background:#333;
+    color:#fff;
+    padding:20px;
+    text-align:center;
+}
+
+
 nav ul{
-    list-style: none;
+    list-style:none;
 }
-/*Selector de tipo para los elementos li dentro del nav ul*/
+
 nav ul li{
-    display: inline-block;
-    margin: 0 20px;
+    display:inline-block;
+    margin:0 20px;
 }
-/*Selector de los enlaces (a) dentro del nav*/
+
 nav ul li a{
-    color: #fff;
-    text-decoration: none;
-    font-weight: bold;
+    color:#fff;
+    text-decoration:none;
+    font-weight:bold;
 }
-/*Selector de CLASE selecciona cualquier elemento que tenga la palabra class="proyecto-card"*/
+
+
+/* SECCIONES */
+
+section{
+    padding:20px;
+    text-align:center;
+}
+
+
+/* PROYECTOS */
+
 .proyecto-card{
-    width: 300px;
-   border: 1px solid #ddd;
-    padding: 20px;
-    margin: 20px;
-    border-radius: 8px;
-    background: #fff;
-    box-shadow: 0 2px 5px rgba(0,0,0,1,1);
+    width:300px;
+    border:1px solid #ddd;
+    padding:20px;
+    margin:20px;
+    border-radius:8px;
+    background:#fff;
+    box-shadow:0 2px 5px rgba(0,0,0,0.2);
 }
-/*Selector de ID (#) seleccionar un elemento en especifico*/
+
 #contenedor-proyectos{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-    padding: 20px;
-    background: #e0f7fa;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:20px;
+    padding:20px;
+    background:#e0f7fa;
 }
-/*MEDIA QUERYS*/
-@media screen and (max-width: 600px){
-    nav ul il{
-        display: block;
-        margin: 10px 0;
-    }
-    .proyecto-card{
-        width: 100%;
-    }
+
+
+
+/* FORM */
+
+form{
+    width:300px;
+    margin:auto;
 }
-@media screen and (min-width: 601px) and (max-width: 900px){
-    #contenedor-proyectos{
-        justify-content: space-around;
-        gap: 10px;
-    }
-    .proyecto-card{
-        width: 45%;
-    }
-    h1{
-        font-size: 1.5em;
-    }
+
+form input,
+form textarea{
+    width:100%;
+    margin:10px 0;
+    padding:10px;
 }
-@media (prefers-color-scheme: dark){
-    body{
-        background: #121212;
-        color: #e0e0e0;
+
+button{
+    padding:10px;
+}
+
+
+
+/* MEDIA */
+
+@media screen and (max-width:600px){
+
+    nav ul li{
+        display:block;
+        margin:10px 0;
     }
-    header{
-        background: #1f1f1f;
-    }
+
     .proyecto-card{
-        background: #1e1e1e;
-        border: 1px solid #333;
-        color: #e0e0e0;
+        width:100%;
     }
-    .proyecto-card a{
-        color: #90caf9;
-    }
+
 }
