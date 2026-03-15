@@ -102,8 +102,8 @@ nav ul li a:hover::after {
 /* SECCIONES */
 
 section{
-    padding:80px 20px;
-    text-align:center;
+    padding: 100px 48px 120px;
+    text-align: center;
 }
 
 .parallax-logos {
@@ -126,13 +126,13 @@ section{
     border-radius: 20px;
     box-shadow: var(--logo-shadow);
     object-fit: contain;
-    opacity: 0.88;
+    opacity: 0.55;
     will-change: transform;
     transition: box-shadow 0.3s ease, opacity 0.3s ease;
 }
 
 .parallax-logo:hover {
-    opacity: 1;
+    opacity: 0.85;
     box-shadow: 0 28px 70px rgba(15, 23, 42, 0.35), 0 14px 35px rgba(0, 0, 0, 0.2);
 }
 
@@ -152,8 +152,9 @@ section{
 
 .parallax-section {
     position: relative;
-    min-height: 50vh;
+    min-height: 55vh;
     z-index: 1;
+    overflow: visible;
 }
 
 .section-content {
@@ -161,7 +162,7 @@ section{
     z-index: 1;
     max-width: 1000px;
     margin: 0 auto;
-    padding: 40px 30px;
+    padding: 56px 48px 64px;
     border-radius: 24px;
     background: var(--section-surface);
     backdrop-filter: blur(18px);
@@ -169,6 +170,236 @@ section{
     transition: background-color 0.45s ease, box-shadow 0.45s ease, border-color 0.45s ease;
 }
 
+/* Títulos con sombra paralela */
+.section-content h2 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    margin-bottom: 1.25rem;
+    color: var(--text-color);
+    text-shadow: 3px 3px 0 rgba(56, 189, 248, 0.2),
+                 5px 5px 0 rgba(15, 23, 42, 0.08);
+}
+
+body.tema-oscuro .section-content h2 {
+    text-shadow: 3px 3px 0 rgba(56, 189, 248, 0.25),
+                 5px 5px 0 rgba(0, 0, 0, 0.35);
+}
+
+#inicio .section-content h1 {
+    text-shadow: 4px 4px 0 rgba(56, 189, 248, 0.2),
+                 6px 6px 0 rgba(15, 23, 42, 0.1);
+}
+
+body.tema-oscuro #inicio .section-content h1 {
+    text-shadow: 4px 4px 0 rgba(56, 189, 248, 0.3),
+                 6px 6px 0 rgba(0, 0, 0, 0.4);
+}
+
+/* Skills y Cualidades: listas pegadas al título + línea vertical uniendo puntos */
+#skills .section-content,
+#educacion .section-content {
+    text-align: left;
+}
+
+#skills .section-content h2,
+#educacion .section-content h2 {
+    margin-bottom: 0.4rem;
+    text-align: center;
+}
+
+#skills .section-content ul,
+#educacion .section-content ul {
+    list-style: none;
+    padding-left: 1.2rem;
+    margin-top: 0.3rem;
+    margin-bottom: 1rem;
+    border-left: 2px solid var(--accent);
+    position: relative;
+    max-width: max-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#skills .section-content ul:last-child,
+#educacion .section-content ul:last-child {
+    margin-bottom: 0;
+}
+
+#skills .section-content ul li,
+#educacion .section-content ul li {
+    position: relative;
+    padding: 6px 14px 6px 10px;
+    margin-bottom: 2px;
+    color: var(--text-color);
+    font-weight: 500;
+    font-size: 0.97rem;
+    letter-spacing: 0.01em;
+    border-radius: 0 10px 10px 0;
+    cursor: default;
+    transition: background 0.3s ease, transform 0.25s ease, box-shadow 0.3s ease;
+}
+
+#skills .section-content ul li:hover,
+#educacion .section-content ul li:hover {
+    background: linear-gradient(
+        135deg,
+        rgba(56, 189, 248, 0.1) 0%,
+        rgba(56, 189, 248, 0.03) 100%
+    );
+    transform: translateX(5px);
+    box-shadow: 0 2px 12px rgba(56, 189, 248, 0.1);
+}
+
+body.tema-oscuro #skills .section-content ul li:hover,
+body.tema-oscuro #educacion .section-content ul li:hover {
+    background: linear-gradient(
+        135deg,
+        rgba(56, 189, 248, 0.14) 0%,
+        rgba(56, 189, 248, 0.04) 100%
+    );
+    box-shadow: 0 2px 16px rgba(56, 189, 248, 0.15);
+}
+
+#skills .section-content ul li::before,
+#educacion .section-content ul li::before {
+    content: "";
+    position: absolute;
+    left: calc(-1.2rem - 4px);
+    top: 50%;
+    transform: translateY(-50%);
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 0 2px var(--section-surface), 0 1px 2px rgba(0, 0, 0, 0.15);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+#skills .section-content ul li:hover::before,
+#educacion .section-content ul li:hover::before {
+    box-shadow: 0 0 0 2px var(--section-surface), 0 0 8px rgba(56, 189, 248, 0.5);
+    transform: translateY(-50%) scale(1.3);
+}
+
+body.tema-oscuro #skills .section-content ul li::before,
+body.tema-oscuro #educacion .section-content ul li::before {
+    box-shadow: 0 0 0 2px var(--section-surface), 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+body.tema-oscuro #skills .section-content ul li:hover::before,
+body.tema-oscuro #educacion .section-content ul li:hover::before {
+    box-shadow: 0 0 0 2px var(--section-surface), 0 0 12px rgba(56, 189, 248, 0.6);
+}
+
+#skills .section-content h2:not(:first-child) {
+    margin-top: 0.75rem;
+}
+
+#educacion .section-content p {
+    margin-bottom: 0.1rem;
+}
+
+/* ===== ESTILOS PARA PÁRRAFOS ===== */
+
+.section-content p {
+    font-size: 1.05rem;
+    line-height: 1.85;
+    letter-spacing: 0.015em;
+    color: var(--text-color);
+    padding: 14px 20px 14px 24px;
+    margin-bottom: 12px;
+    border-left: 3px solid var(--accent);
+    border-radius: 0 12px 12px 0;
+    background: linear-gradient(
+        135deg,
+        rgba(56, 189, 248, 0.06) 0%,
+        rgba(56, 189, 248, 0.02) 100%
+    );
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
+.section-content p:hover {
+    transform: translateX(6px);
+    box-shadow: 0 4px 18px rgba(56, 189, 248, 0.12);
+    background: linear-gradient(
+        135deg,
+        rgba(56, 189, 248, 0.1) 0%,
+        rgba(56, 189, 248, 0.04) 100%
+    );
+}
+
+.section-content p:last-child {
+    margin-bottom: 0;
+}
+
+/* Párrafos con datos de contacto (teléfono, email, etc.) */
+#acerca .section-content p ~ p {
+    font-size: 0.95rem;
+    padding: 10px 18px 10px 22px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+#acerca .section-content p a {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 600;
+    position: relative;
+    transition: color 0.25s ease;
+}
+
+#acerca .section-content p a::after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--accent);
+    border-radius: 999px;
+    transition: width 0.3s ease;
+}
+
+#acerca .section-content p a:hover::after {
+    width: 100%;
+}
+
+/* Dark mode ajustes para párrafos */
+body.tema-oscuro .section-content p {
+    background: linear-gradient(
+        135deg,
+        rgba(56, 189, 248, 0.08) 0%,
+        rgba(56, 189, 248, 0.02) 100%
+    );
+}
+
+body.tema-oscuro .section-content p:hover {
+    box-shadow: 0 4px 22px rgba(56, 189, 248, 0.18);
+    background: linear-gradient(
+        135deg,
+        rgba(56, 189, 248, 0.14) 0%,
+        rgba(56, 189, 248, 0.05) 100%
+    );
+}
+
+/* Footer paragraph - más sutil */
+footer p {
+    font-size: 0.9rem;
+    letter-spacing: 0.03em;
+    color: var(--text-color);
+    opacity: 0.7;
+    padding: 20px;
+    text-align: center;
+    transition: opacity 0.3s ease;
+}
+
+footer p:hover {
+    opacity: 1;
+}
 
 /* PROYECTOS */
 
@@ -422,4 +653,56 @@ button:active{
     position: relative;
     z-index: 2;
     text-align: center;
+}
+
+
+/* ===== SCROLL REVEAL: invisible → visible en todas las direcciones ===== */
+
+.scroll-reveal {
+    opacity: 0 !important;
+    visibility: hidden;
+    transition: opacity 1.15s cubic-bezier(0.22, 1, 0.36, 1),
+                transform 1.15s cubic-bezier(0.22, 1, 0.36, 1),
+                visibility 0s linear 1.15s !important;
+    will-change: opacity, transform;
+}
+
+/* Entrada desde la izquierda */
+.scroll-reveal.from-left {
+    transform: translateX(-120px) !important;
+}
+
+/* Entrada desde la derecha */
+.scroll-reveal.from-right {
+    transform: translateX(120px) !important;
+}
+
+/* Entrada desde abajo */
+.scroll-reveal.from-bottom {
+    transform: translateY(100px) !important;
+}
+
+/* Entrada desde arriba */
+.scroll-reveal.from-top {
+    transform: translateY(-100px) !important;
+}
+
+/* Estado revelado: visible y en posición final */
+.scroll-reveal.revealed {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: translate(0, 0) !important;
+    transition: opacity 1.15s cubic-bezier(0.22, 1, 0.36, 1),
+                transform 1.15s cubic-bezier(0.22, 1, 0.36, 1),
+                visibility 0s linear 0s !important;
+}
+
+/* Accesibilidad: reducir movimiento */
+@media (prefers-reduced-motion: reduce) {
+    .scroll-reveal {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: none !important;
+        transition: none !important;
+    }
 }

@@ -9,160 +9,188 @@
     <script src="uicontroller.js" defer></script>
     <script src="proyectos.js" defer></script>
     <script src="parallax.js" defer></script>
+    <script src="scroll-animations.js" defer></script>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<header>
-    <nav>
-        <ul>
-            <li><a href="#inicio">Inicio</a></li>
-            <li><a href="#acerca">Acerca</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#educacion">Educación</a></li>
-            <li><a href="#proyectos">Portafolio</a></li>
-            <li><a href="#contacto">Contacto</a></li>
-            <li><button id="boton-tema">TEMA</button></li>
-        </ul>
-    </nav>
-</header>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#acerca">Acerca</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#educacion">Educación</a></li>
+                <li><a href="#proyectos">Portafolio</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+                <li><button id="boton-tema">TEMA</button></li>
+            </ul>
+        </nav>
+    </header>
 
-<div id="parallax-logos" class="parallax-logos" aria-hidden="true"></div>
-<div id="parallax-logos-front" class="parallax-logos parallax-logos--front" aria-hidden="true"></div>
+    <div id="parallax-logos" class="parallax-logos" aria-hidden="true"></div>
+    <div id="parallax-logos-front" class="parallax-logos parallax-logos--front" aria-hidden="true"></div>
 
-<!-- INICIO -->
+    <!-- INICIO -->
 
-<section id="inicio" class="parallax-section">
-    <div class="section-content">
-    <div class="contenido">
-        <div class="texto">
-            <h1>Soy Juan Guillermo Laura Mamani</h1>
-            <h2 id = "typing">Desarrollador Web Fullstack</h2>
+    <section id="inicio" class="parallax-section">
+        <div class="section-content scroll-reveal from-bottom">
+            <div class="contenido">
+                <div class="texto">
+                    <h1>Soy Juan Guillermo Laura Mamani</h1>
+                    <h2 id="typing">Desarrollador Web Fullstack</h2>
+                </div>
+
+                <div class="imagen">
+                    <img src="foto.jpg" alt="Juan Guillermo Laura Mamani">
+                </div>
+            </div>
         </div>
+    </section>
 
-        <div class="imagen">
-            <img src="foto.jpg" alt="Juan Guillermo Laura Mamani">
+
+    <!-- ACERCA DE MI -->
+
+    <section id="acerca" class="parallax-section">
+        <div class="section-content scroll-reveal from-left">
+            <h2>Acerca de mí</h2>
+
+            <p>
+                Soy profesional en informática desde el 2023 con 2 años de experiencia en el desarrollo de software y
+                control de calidad.
+                Me gusta el desarrollo web y la programación en general. Mi objetivo es ser un desarrollador web
+                fullstack y poder trabajar en proyectos interesantes.
+                También me gusta el diseño web y la creación de interfaces de usuario.
+            </p>
+
+            <p>Telefono: 78889375</p>
+            <p>Email: jguillermolaura@gmail.com</p>
+            <p>LinkedIn: <a href="https://www.linkedin.com/in/juan-guillermo-laura-mamani-7b7b7b7b7b7b/">Juan Guillermo
+                    Laura Mamani</a></p>
         </div>
-    </div>
-    </div>
-</section>
-
-
-<!-- ACERCA DE MI -->
-
-<section id="acerca" class="parallax-section">
-    <div class="section-content">
-    <h2>Acerca de mí</h2>
-
-    <p>
-        Soy profesional en informática desde el 2023.
-    </p>
-
-    <p>Telefono: 78889375</p>
-    </div>
-</section>
+    </section>
 
 
 
-<!-- SKILLS -->
+    <!-- SKILLS -->
 
-<section id="skills" class="parallax-section">
-    <div class="section-content">
-    <h2>Skills principales</h2>
+    <section id="skills" class="parallax-section">
+        <div class="section-content scroll-reveal from-right">
+            <h2>Skills principales</h2>
 
-    <ul>
-        <li>Java</li>
-        <li>PHP</li>
-        <li>JavaScript</li>
-        <li>TypeScript</li>
-        <li>Angular</li>
-        <li>React</li>
-        <li>HTML</li>
-        <li>CSS</li>
-        <li>Python</li>
-    </ul>
-
-
-    <h2>Skills secundarios</h2>
-
-    <ul>
-        <li>Git</li>
-        <li>GitHub</li>
-        <li>GitLab</li>
-        <li>Adobe Pack</li>
-        <li>Docker</li>
-        <li>Linux</li>
-    </ul>
-    </div>
-</section>
+            <ul>
+                <li>Java</li>
+                <li>PHP</li>
+                <li>JavaScript</li>
+                <li>TypeScript</li>
+                <li>Angular</li>
+                <li>React</li>
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>Python</li>
+                <li>SQL</li>
+                <li>PostgreSQL</li>
+                <li>MySQL</li>
+                <li>Oracle</li>
+                <li>MongoDB</li>
+                <li>Redis</li>
+                <li>Elasticsearch</li>
+                <li>Kafka</li>
+                <li>RabbitMQ</li>
+                <li>Docker</li>
+                <li>Linux</li>
+            </ul>
 
 
+            <h2>Skills secundarios</h2>
 
-<!-- EDUCACION -->
-
-<section id="educacion" class="parallax-section">
-    <div class="section-content">
-    <h2>Cualidades y Educación</h2>
-
-    <p>Licenciado en Informática</p>
-
-    <ul>
-        <li>Responsable</li>
-        <li>Trabajo en equipo</li>
-        <li>Aprendizaje rápido</li>
-        <li>Resolución de problemas</li>
-    </ul>
-    </div>
-</section>
-
-
-
-<!-- PROYECTOS -->
-
-<section id="proyectos" class="parallax-section">
-    <div class="section-content">
-    <h2>Mis proyectos</h2>
-    <div class="carrusel-proyectos">
-        <div id="contenedor-proyectos">
+            <ul>
+                <li>Git</li>
+                <li>GitHub</li>
+                <li>GitLab</li>
+                <li>Adobe Pack</li>
+                <li>Docker</li>
+                <li>Linux</li>
+            </ul>
         </div>
-    </div>
-    </div>
-</section>
+    </section>
 
 
 
-<!-- CONTACTO -->
+    <!-- EDUCACION -->
 
-<section id="contacto" class="parallax-section">
-    <div class="section-content">
-    <h2>Contacto</h2>
+    <section id="educacion" class="parallax-section">
+        <div class="section-content scroll-reveal from-top flex-column">
+            <h2>Cualidades y Educación</h2>
+            <ul>
+                <li>
+                    <p>
+                        <strong>Licenciado en Informática</strong>
+                        <br>
+                        <span>Universidad Mayor de San Andres</span>
+                        <br>
+                        <span>2023</span>
+                    </p>Licenciado en Informática
+                </li>
+            </ul>
 
-    <form>
-
-        <input type="text" placeholder="Nombre">
-
-        <input type="email" placeholder="Correo">
-
-        <textarea placeholder="Mensaje"></textarea>
-
-        <button>Enviar</button>
-
-    </form>
-    </div>
-</section>
+            <ul>
+                <li>Responsable</li>
+                <li>Trabajo en equipo</li>
+                <li>Aprendizaje rápido</li>
+                <li>Resolución de problemas</li>
+            </ul>
+        </div>
+    </section>
 
 
 
-<footer>
+    <!-- PROYECTOS -->
 
-    <p>
-        <script>
-            document.write("&copy; " + new Date().getFullYear() + " Juan Guillermo Laura Mamani");
-        </script>
-    </p>
+    <section id="proyectos" class="parallax-section">
+        <div class="section-content scroll-reveal from-left">
+            <h2>Mis proyectos</h2>
+            <div class="carrusel-proyectos">
+                <div id="contenedor-proyectos">
+                </div>
+            </div>
+        </div>
+    </section>
 
-</footer>
+
+
+    <!-- CONTACTO -->
+
+    <section id="contacto" class="parallax-section">
+        <div class="section-content scroll-reveal from-right">
+            <h2>Contacto</h2>
+
+            <form>
+
+                <input type="text" placeholder="Nombre">
+
+                <input type="email" placeholder="Correo">
+
+                <textarea placeholder="Mensaje"></textarea>
+
+                <button>Enviar</button>
+
+            </form>
+        </div>
+    </section>
+
+
+
+    <footer>
+
+        <p>
+            <script>
+                document.write("&copy; " + new Date().getFullYear() + " Juan Guillermo Laura Mamani");
+            </script>
+        </p>
+
+    </footer>
 
 
 </body>

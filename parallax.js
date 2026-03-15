@@ -1,29 +1,78 @@
 
 (function () {
-    var LOGOS = [
-        { src: "Java-logo.png", top: 8, left: 2, speed: 0.22, size: 82, front: false },
-        { src: "logohtml.webp", top: 5, left: 92, speed: 0.18, size: 78, front: true },
-        { src: "logophp.webp", top: 35, left: 3, speed: 0.28, size: 76, front: false },
-        { src: "logosql.png", top: 15, left: 78, speed: 0.2, size: 74, front: false },
-        { src: "logo python.webp", top: 55, left: 88, speed: 0.24, size: 80, front: true },
-        { src: "Java-logo.png", top: 70, left: 6, speed: 0.16, size: 72, front: false },
-        { src: "logohtml.webp", top: 25, left: 15, speed: 0.26, size: 70, front: false },
-        { src: "logophp.webp", top: 48, left: 94, speed: 0.2, size: 68, front: true },
-        { src: "logosql.png", top: 82, left: 18, speed: 0.3, size: 76, front: false },
-        { src: "logo python.webp", top: 12, left: 45, speed: 0.18, size: 72, front: false },
-        { src: "Java-logo.png", top: 62, left: 82, speed: 0.24, size: 78, front: false },
-        { src: "logohtml.webp", top: 88, left: 8, speed: 0.22, size: 74, front: true },
-        { src: "logophp.webp", top: 42, left: 72, speed: 0.16, size: 70, front: false },
-        { src: "logosql.png", top: 18, left: 28, speed: 0.28, size: 68, front: false },
-        { src: "logo python.webp", top: 75, left: 55, speed: 0.2, size: 82, front: true }
+    /* ── Fuentes de logos (se repiten para tener más en pantalla) ── */
+    var LOGO_SOURCES = [
+        "Java-logo.png",
+        "logohtml.webp",
+        "logophp.webp",
+        "logosql.png",
+        "logo python.webp",
+        "Java-logo.png",
+        "logohtml.webp",
+        "logophp.webp",
+        "logosql.png",
+        "logo python.webp",
+        "Java-logo.png",
+        "logohtml.webp",
+        "logophp.webp",
+        "logosql.png",
+        "logo python.webp"
     ];
+
+    /* ── Helpers ── */
+    function rand(min, max) {
+        return Math.random() * (max - min) + min;
+    }
+
+    /* Evitar que los logos se encimen demasiado */
+    function isTooClose(top, left, placed, minDist) {
+        for (var i = 0; i < placed.length; i++) {
+            var dx = left - placed[i].left;
+            var dy = top - placed[i].top;
+            if (Math.sqrt(dx * dx + dy * dy) < minDist) return true;
+        }
+        return false;
+    }
+
+    /* ── Generar posiciones aleatorias (solo en los bordes) ── */
+    function generateLogos() {
+        var logos = [];
+        var placed = [];
+        var MIN_DIST = 10; // distancia mínima en % entre logos
+
+        LOGO_SOURCES.forEach(function (src, idx) {
+            var top, left, attempts = 0;
+
+            /* Alternar entre borde izquierdo y derecho */
+            var isLeft = idx % 2 === 0;
+
+            do {
+                top = rand(2, 92);
+                left = isLeft ? rand(0, 12) : rand(88, 98);
+                attempts++;
+            } while (isTooClose(top, left, placed, MIN_DIST) && attempts < 60);
+
+            placed.push({ top: top, left: left });
+
+            logos.push({
+                src: src,
+                top: top,
+                left: left,
+                speed: rand(0.14, 0.3),
+                size: Math.round(rand(80, 115)),
+                front: Math.random() < 0.25
+            });
+        });
+
+        return logos;
+    }
 
     function createLogoEl(item) {
         var wrap = document.createElement("div");
         wrap.className = "parallax-logo-wrap";
-        wrap.setAttribute("data-speed", item.speed);
-        wrap.style.top = item.top + "%";
-        wrap.style.left = item.left + "%";
+        wrap.setAttribute("data-speed", item.speed.toFixed(3));
+        wrap.style.top = item.top.toFixed(2) + "%";
+        wrap.style.left = item.left.toFixed(2) + "%";
         wrap.style.width = item.size + "px";
         wrap.style.height = item.size + "px";
         var img = document.createElement("img");
@@ -40,6 +89,9 @@
         var containerBack = document.getElementById("parallax-logos");
         var containerFront = document.getElementById("parallax-logos-front");
         if (!containerBack) return;
+
+        /* Generar logos con posiciones random en cada refresh */
+        var LOGOS = generateLogos();
 
         LOGOS.forEach(function (item) {
             var el = createLogoEl(item);
@@ -79,3 +131,4 @@
         initParallax();
     }
 })();
+
